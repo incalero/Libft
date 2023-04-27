@@ -6,7 +6,7 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 09:38:08 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/26 11:17:12 by incalero         ###   ########.fr       */
+/*   Updated: 2023/04/27 09:05:31 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (dest_length + src_length);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char			src[] = "pajaro fluvialggjjfg";
 	char			dest[30] = "Eres un ";
@@ -61,6 +61,7 @@ int	main(void)
 	// printf("\n La cadena resultante es: %lu\n", strlcat(dest, src, size));
 	printf("\n La cadena resultante es: %zu\n", ft_strlcat(dest, src, size));
 	printf("dst = %s\n", dest);
-	// printf("\n Mi función:\nsize = %zu\ndest = %s\nres = %lu\n", size, dest, ft_strlcat(dest, src, size));		
+	// printf("\n Mi función:\nsize = %zu\ndest = %s\nres = %lu\n", size, dest, 
+	ft_strlcat(dest, src, size));		
 	return (0);
-}
+}*/
