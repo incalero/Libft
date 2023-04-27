@@ -6,7 +6,7 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 08:40:21 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/27 08:54:55 by incalero         ###   ########.fr       */
+/*   Updated: 2023/04/27 10:48:41 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <ctype.h>
 
 void	ft_bzero(void *str, size_t n);
 int		ft_isalnum(int c);
