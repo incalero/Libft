@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 10:49:28 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/27 11:24:44 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/27 11:27:51 by incalero          #+#    #+#             */
+/*   Updated: 2023/04/27 11:41:59 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include <ctype.h> */
 #include "libft.h"
 
-int	ft_toupper(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if (c >= 'a' && c <= 'z')
-		c = c -32;
-	return (c);
+	while (c >= 256)
+		c = c - 256;
+	while (*s != '\0')
+	{
+		if ( *s == c)
+			return ((char *) s);
+	}
+	
 }
-
-/*int main(void)
-{
-	int		c;
-
-	c = 'j';
-	printf("el caracter que cambiamos es: %c\n", c);
-	printf("Funcion original:     %c\n", toupper(c));
-	printf("Funcion creada: %c\n", ft_toupper(c));
-	return (0);
-}*/
