@@ -10,13 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-#include<stdio.h>
-#include<unistd.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    const char	*str;
+	const char	*str;
 	size_t		i;
 
 	str = (const char *)s;
@@ -30,7 +28,7 @@ void *ft_memchr(const void *s, int c, size_t n)
 	return (0);
 }
 
-int main(void)
+/*int main(void)
 {
     
     size_t c;
@@ -42,8 +40,12 @@ int main(void)
     c = 2;
     d = 10;
 
-    printf("el resultado de la funcion replicada para c = 2 es: %p\n" , ft_memchr(s, x, c));
-    printf("el resultado de la funcion original para c = 2 es: %p\n" , memchr(s, x, c));
-    printf("el resultado de la funcion replicada para c = 10 es: %p\n" , ft_memchr(s, x, d));
-    printf("el resultado de la funcion original para c = 10 es: %p\n" , memchr(s, x, d));
-}
+    printf("el resultado de la funcion replicada para c = 2 es: 
+    %p\n" , ft_memchr(s, x, c));
+    printf("el resultado de la funcion original para c = 2 es: 
+    %p\n" , memchr(s, x, c));
+    printf("el resultado de la funcion replicada para c = 10 es: 
+    %p\n" , ft_memchr(s, x, d));
+    printf("el resultado de la funcion original para c = 10 es: 
+    %p\n" , memchr(s, x, d));
+}*/

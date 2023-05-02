@@ -6,7 +6,7 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 11:27:51 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/27 11:41:59 by incalero         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:12:28 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ char	*ft_strchr(const char *s, int c)
 		c = c - 256;
 	while (*s != '\0')
 	{
-		if ( *s == c)
+		if (*s == c)
 			return ((char *) s);
 	}
-	
 }

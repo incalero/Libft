@@ -6,13 +6,11 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 08:15:32 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/25 08:20:33 by incalero         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:08:29 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-/* #include "libft.h" */
+#include "libft.h" 
 
 int	ft_isalpha(int c)
 {

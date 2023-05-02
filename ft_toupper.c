@@ -6,11 +6,10 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:49:28 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/27 11:24:44 by incalero         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:17:44 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include <ctype.h> */
 #include "libft.h"
 
 int	ft_toupper(int c)

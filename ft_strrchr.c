@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<unistd.h>
-#include<string.h>
+#include "libft.h"
 
 const char	*ft_strrchr(const char *str, int character)
 
@@ -36,7 +34,7 @@ const char	*ft_strrchr(const char *str, int character)
 	return (s);         
 } 
 
-int	main(void)
+/*int	main(void)
 {
 	const char	*str = "hola mundo";
 	const char	*s;
@@ -51,4 +49,4 @@ int	main(void)
 	printf("la posicion del ultimo caracter 'o' encontrado con strrchar es %ld\n", (d +1) - str);
 
 	return (0);
-}
+}*/

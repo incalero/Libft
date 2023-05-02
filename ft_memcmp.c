@@ -10,11 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-#include<stdio.h>
-#include<unistd.h>
+#include "libft.h"
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*ss1;
 	const unsigned char	*ss2;
@@ -32,7 +30,7 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
-int main(void)
+/*int main(void)
 {
     size_t x = 3;
     size_t y = 9;
@@ -55,4 +53,4 @@ int main(void)
     printf("el resultado de la funcion replica es %d\n" , ft_memcmp(s3, s4, y));
     printf("el resultado de la funcion original es %d\n" , memcmp(s3, s4, y));
 
-}
+}*/
