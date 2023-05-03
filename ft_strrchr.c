@@ -12,27 +12,24 @@
 
 #include "libft.h"
 
-const char	*ft_strrchr(const char *str, int character)
+char	*ft_strrchr(const char *s, int c)
 
 {
-	int			i;
-	const char	*s;
+	int	i;
 
 	i = 0;
-	s = NULL;
-	if (str != NULL)
+	while (c >= 256)
+		c = c - 256;
+	while (s[i] != '\0')
+		i++;
+	while (i >= 0)
 	{
-		while (str[i])
-		{
-			if (str[i] == (char)character)
-				s = (const char *)(str + i);
-			i++;
-		}
-		if (str[i] == character)
-			s = (const char *)(str +i);
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i--;
 	}
-	return (s);         
-} 
+	return (NULL);
+}
 
 /*int	main(void)
 {
@@ -42,11 +39,14 @@ const char	*ft_strrchr(const char *str, int character)
 
 	s = ft_strrchr(str, 'e');
 	d = strrchr(str, 'e');
-
-	printf("La última aparición de la letra 'o' en la cadena con la función ft_strrchr es: %s\n", ft_strrchr(str, 'e'));
-	printf("La última aparición de la letra 'o' en la cadena con la función strrchr es: %s\n", strrchr(str, 'e'));
-	printf("la posicion del ultimo caracter 'o' encontrado con ft_strrchar es %ld\n", (s +1) - str);
-	printf("la posicion del ultimo caracter 'o' encontrado con strrchar es %ld\n", (d +1) - str);
-
+	printf("La última aparición de la letra 'o' en la cadena 
+	con la función ft_strrchr es: %s\n", ft_strrchr(str, 'e'));
+	printf("La última aparición de la letra 'o' en la cadena 
+	con la función strrchr es: %s\n", strrchr(str, 'e'));
+	printf("la posicion del ultimo caracter 'o' encontrado 
+	con ft_strrchar es %ld\n", (s +1) - str);
+	printf("la posicion del ultimo caracter 'o' encontrado 
+	con strrchar es %ld\n", (d +1) - str);
 	return (0);
-}*/
+}
+*/
