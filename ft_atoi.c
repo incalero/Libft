@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcpy.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 08:15:58 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/25 08:15:58 by incalero         ###   ########.fr       */
+/*   Created: 2023/05/04 09:04:39 by incalero          #+#    #+#             */
+/*   Updated: 2023/05/04 09:04:39 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
+//#include <stdlib.h>
+//#include <stdio.h>
 
 /*
 ** #include <stdlib.h>
@@ -21,7 +22,7 @@
 ** pointed to by nptr to int.
 */
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	is_neg;
@@ -30,8 +31,8 @@ int		ft_atoi(const char *str)
 	i = 0;
 	is_neg = 1;
 	res = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ||
-			str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' \
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -47,11 +48,11 @@ int		ft_atoi(const char *str)
 	return (res * is_neg);
 }
 
-int main(void)
+/*int main(void)
 {
     const char  *s;
 
     s = "  \n -12987";
     printf ("el valor en entero que devuelve ft_atoi es %d\n", ft_atoi(s));
     printf ("el valor en entero que devuelve atoi es %d\n", atoi(s));
-}
+}*/

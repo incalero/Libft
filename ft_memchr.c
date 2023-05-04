@@ -19,33 +19,27 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	str = (const char *)s;
 	i = 0;
+	while (c >= 256)
+		c = c - 256;
 	while (i < n)
 	{
-		if (str[i] == c)
-			return ((void *)(s + i));
+		if (((unsigned char *)str)[i] == (unsigned char)c)
+			return ((void *) &((unsigned char *)str)[i]);
 		i++;
 	}
 	return (0);
 }
 
-/*int main(void)
+/*int	main(void)
 {
-    
-    size_t c;
-    size_t d;
-    char x;
-    const char *s = "hhola mundo";
+	size_t		c;
+	size_t		d;
+	char		x;
+	const char	*s = "hhola mundo";
 
-    x = 'o';
-    c = 2;
-    d = 10;
-
-    printf("el resultado de la funcion replicada para c = 2 es: 
-    %p\n" , ft_memchr(s, x, c));
-    printf("el resultado de la funcion original para c = 2 es: 
-    %p\n" , memchr(s, x, c));
-    printf("el resultado de la funcion replicada para c = 10 es: 
-    %p\n" , ft_memchr(s, x, d));
-    printf("el resultado de la funcion original para c = 10 es: 
-    %p\n" , memchr(s, x, d));
+	x = '\346';
+	c = 2;
+	d = 18;
+    printf("el resultado de la funcion replicada para c = 2 es: %p\n" , ft_memchr(s, x, d));
+    printf("el resultado de la funcion original para c = 2 es: %p\n" , memchr(s, x, d));
 }*/
