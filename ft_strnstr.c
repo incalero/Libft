@@ -3,45 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 09:00:17 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/04 09:00:17 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/18 17:41:00 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/04/21 14:20:15 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
-	size_t	j;
+	int		i2;
+	char	*ret;
 
 	if (needle[0] == '\0')
-		return ((char *)haystack);
+		return ((char *) haystack);
+	if (len == 0)
+		return (0);
 	i = 0;
-	while (haystack[i] && i < len)
+	while (haystack[i] != '\0' && i <= len)
 	{
-		j = 0;
-		while (haystack[i + j] && needle[j] && i + j < len \
-			&& haystack[i + j] == needle[j])
-			j++;
-		if (needle[j] == '\0' )
-			return ((char *)(haystack + i));
-		i++;
+		i2 = 0;
+		ret = (char *) &haystack[i];
+		while (haystack[i++] == needle[i2] && needle[i2] != '\0' && \
+		i <= len)
+			i2++;
+		if (needle[i2] == '\0')
+			return (ret);
+		i = i - i2;
 	}
-	return (NULL);
+	return (0);
 }
 
-/* int 	main(void)
+/*int	main(void)
 {
-	const char	x[20] = "pepito moreno";
-	const char	*y = NULL;
-	
-	size_t 		z;
-	z = 30;
-	printf ("el resultado de la funcion ft es: %s\n", strnstr (x, y, z));
-	printf ("el resultado de la funcion ft es: %s\n", ft_strnstr(x, y, z));
-	
+	const char	haystack[] = "Eeeeeese cccccaballo de la Pradera";
+	const char	neddle[] = "ca";
+	size_t		len;
+
+	len = 15;
+	printf("Funcion original: %s\n", strnstr(haystack, neddle, len));
+	printf("Funcion mio:      %s\n", ft_strnstr(haystack, neddle, len));
+	return (0);
 }*/

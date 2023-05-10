@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 10:51:30 by manue             #+#    #+#             */
-/*   Updated: 2023/04/24 13:03:59 by jgoikoet         ###   ########.fr       */
+/*   Created: 2023/04/18 11:50:39 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/04/21 14:16:56 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+/*void	ft_upper_pair(unsigned int i, char *c)
 {
-	size_t			i;
+	if (*c >= 'a' && *c <= 'z' && i % 2 == 0)
+		*c = *c - 32;
+}*/
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
 	i = 0;
-	if (c > 256)
-		c = c - 256;
-	while (i < n)
+	while (s[i] != '\0')
 	{
-		if (((char *)s)[i] == c)
-			return ((void *) &((unsigned char *)s)[i]);
+		f (i, &s[i]);
 		i++;
 	}
-	return (0);
 }
 
 /*int	main(void)
 {
-	//const char	s[] = "caballo loco troton";
-	char s[] = {0, 1, 2 ,3 ,4 ,5};
-	int			c;
-	size_t		n;
+	char	s[] = "sacando patatas alau del rio salieron carramarros con alpargatas";
 
-	c = 2;
-	n = 3;
-	printf("Funcion original:     %s\n", memchr(s, c, n));
-	printf("Funcion propio vasco: %s\n", ft_memchr(s, c, n));
+	ft_striteri(s, &ft_upper_pair);
+	printf("\n%s\n\n", s);
 	return (0);
 }*/

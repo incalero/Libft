@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 10:51:30 by manue             #+#    #+#             */
-/*   Updated: 2023/04/24 13:03:59 by jgoikoet         ###   ########.fr       */
+/*   Created: 2023/04/18 13:27:22 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/04/21 14:12:46 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <fcntl.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t			i;
+	int	i;
 
 	i = 0;
-	if (c > 256)
-		c = c - 256;
-	while (i < n)
-	{
-		if (((char *)s)[i] == c)
-			return ((void *) &((unsigned char *)s)[i]);
-		i++;
-	}
-	return (0);
+	while (s[i] != '\0')
+		write (fd, &s[i++], 1);
 }
 
 /*int	main(void)
 {
-	//const char	s[] = "caballo loco troton";
-	char s[] = {0, 1, 2 ,3 ,4 ,5};
-	int			c;
-	size_t		n;
+	char	s[] = "Hace tiempo ke vengo al taller\ny no se a ke vengo...";
+	int		fd;
+	int		i;
 
-	c = 2;
-	n = 3;
-	printf("Funcion original:     %s\n", memchr(s, c, n));
-	printf("Funcion propio vasco: %s\n", ft_memchr(s, c, n));
+	i = 0;
+	fd = open("putstr_fd.txt", 1);
+	if (fd == -1)
+	{
+		perror("Error al abrir el archivo");
+		return (1);
+	}
+	ft_putstr_fd(s, fd);
+	close(fd);
 	return (0);
 }*/

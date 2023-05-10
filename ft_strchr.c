@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 11:27:51 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/03 11:36:39 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/18 17:39:26 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/04/24 15:29:25 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*char	*ft_strchr(const char *s, int c)
-{
-	while (c >= 256)
-		c = c - 256;
-	while (*s != '\0')
-	{
-		if (*s == c)
-			return ((char *) s);
-		s++;
-	}
-	if (*s == '\0' && c == '\0')
-		return ((char *) s);
-	return (NULL);
-}*/
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -39,7 +24,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (*s == c)
 		return ((char *) s);
-	return (NULL);
+	return (0);
 }
 
 /*int	main(void)

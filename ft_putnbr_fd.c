@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 10:51:30 by manue             #+#    #+#             */
-/*   Updated: 2023/04/24 13:03:59 by jgoikoet         ###   ########.fr       */
+/*   Created: 2023/04/18 15:47:35 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/04/24 19:31:45 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <fcntl.h>
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t			i;
+	char	*str;
+	int		i;
 
+	str = ft_itoa(n);
 	i = 0;
-	if (c > 256)
-		c = c - 256;
-	while (i < n)
-	{
-		if (((char *)s)[i] == c)
-			return ((void *) &((unsigned char *)s)[i]);
-		i++;
-	}
-	return (0);
+	while (str[i] != '\0')
+		write (fd, &str[i++], 1);
 }
 
 /*int	main(void)
 {
-	//const char	s[] = "caballo loco troton";
-	char s[] = {0, 1, 2 ,3 ,4 ,5};
-	int			c;
-	size_t		n;
+	int		fd;
+	int		n;
 
-	c = 2;
-	n = 3;
-	printf("Funcion original:     %s\n", memchr(s, c, n));
-	printf("Funcion propio vasco: %s\n", ft_memchr(s, c, n));
+	n = -2147483648;
+	n = -2;
+	fd = open("putnbr_fd.txt", 1);
+	if (fd == -1)
+	{
+		perror("Error al abrir el archivo");
+		return (1);
+	}
+	ft_putnbr_fd(n, fd);
+	close(fd);
 	return (0);
 }*/

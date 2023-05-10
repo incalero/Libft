@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 10:28:11 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/21 10:52:59 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/18 17:41:11 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/05/03 10:37:06 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
-
 {
 	int	i;
 
@@ -25,28 +24,21 @@ char	*ft_strrchr(const char *s, int c)
 	while (i >= 0)
 	{
 		if (s[i] == c)
-			return ((char *)&s[i]);
+			return ((char *) &s[i]);
 		i--;
 	}
-	return (NULL);
+	return (0);
 }
 
 /*int	main(void)
 {
-	const char	*str = "hola mundo";
-	const char	*s;
-	const char	*d;
+	const char	str[] = "Se cago en Missuri";
+	int			c;
 
-	s = ft_strrchr(str, 'e');
-	d = strrchr(str, 'e');
-	printf("La última aparición de la letra 'o' en la cadena 
-	con la función ft_strrchr es: %s\n", ft_strrchr(str, 'e'));
-	printf("La última aparición de la letra 'o' en la cadena 
-	con la función strrchr es: %s\n", strrchr(str, 'e'));
-	printf("la posicion del ultimo caracter 'o' encontrado 
-	con ft_strrchar es %ld\n", (s +1) - str);
-	printf("la posicion del ultimo caracter 'o' encontrado 
-	con strrchar es %ld\n", (d +1) - str);
+	c = '\0';// + 256;
+	//c = 333;
+	printf ("%i\n", c);
+	printf("Funcion original =     %s\n", strrchr(str, c));
+	printf("Funcion hecho propio = %s\n%p", ft_strrchr(str, c), ft_strrchr(str, c));
 	return (0);
-}
-*/
+}*/

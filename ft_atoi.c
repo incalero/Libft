@@ -3,56 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 09:04:39 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/04 09:04:39 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/14 15:37:59 by manue             #+#    #+#             */
+/*   Updated: 2023/04/22 12:06:14 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-//#include <stdlib.h>
-//#include <stdio.h>
-
-/*
-** #include <stdlib.h>
-** convert a string to an integer
-**
-** The atoi() function converts the initial portion of the string 
-** pointed to by nptr to int.
-*/
+#include <stdlib.h>
+#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
 	int	i;
-	int	is_neg;
 	int	res;
+	int	sign;
 
 	i = 0;
-	is_neg = 1;
 	res = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' \
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	sign = 0;
+	while (((str[i] >= 1 && str[i] <= 32) && str[i] != '\e') && str[i] != '\0')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == '-')
-			is_neg = -1;
+		sign = i;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = (res * 10) + (str[i] - '0');
+		res = res * 10;
+		res = res + str[i] - '0';
 		i++;
 	}
-	return (res * is_neg);
+	if (str[sign] == '-')
+		res = -res;
+	return (res);
 }
 
-/*int main(void)
+/*int	main(void)
 {
-    const char  *s;
-
-    s = "  \n -12987";
-    printf ("el valor en entero que devuelve ft_atoi es %d\n", ft_atoi(s));
-    printf ("el valor en entero que devuelve atoi es %d\n", atoi(s));
+	//const char	str[] = "     +2147483647";
+	//const char	str[] = "   -78565h";
+	//const char	str[] = "\t\n\ra\v\f  469 \n";
+	const char	str[] = "\e475";
+	printf("Funcion original = %i\n", atoi(str));
+	printf("Funcion casera =   %i\n", ft_atoi(str));
+	return (0);
 }*/

@@ -3,28 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 08:15:32 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/03 11:36:47 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/13 09:45:28 by manue             #+#    #+#             */
+/*   Updated: 2023/04/21 13:49:13 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<ctype.h>
-#include "libft.h" 
+/*#include <ctype.h>
+#include <stdio.h>*/
 
 int	ft_isalpha(int c)
 {
-	if ((c < 'A') || (c > 'Z' && c < 'a') || (c > 'z'))
-		return (0);
-	return (1);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
 
-/* int main(void)
+/*int	main(void)
 {
-	char c = 'a';
-	printf ("%s", "el resultado de la solucion es:");
-	printf ("%d", ft_isalpha(c));
-	printf ("%s", "el resultado de la solucion 2 es:");
-	printf ("%d", isalpha(c));
+	int	c;
+
+	c = '9';
+	printf("Funcion original: %i\n", isalpha(c));
+	printf("Funcion propia:   %i\n", ft_isalpha(c));
+	return (0);
 }*/

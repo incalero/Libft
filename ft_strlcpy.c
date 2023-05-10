@@ -1,29 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcpy.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 08:15:58 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/25 08:15:58 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/18 17:40:24 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/04/21 14:18:21 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	while (src[i] != '\0' && i < dstsize - 1)
-	{
-	dst [i] = src [i];
+	j = 0;
+	while (src[i] != '\0')
 		i++;
+	if (dstsize == 0)
+		return (i);
+	while (src[j] != '\0' && j < dstsize - 1)
+	{
+		dest[j] = src[j];
+		j++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	dest[j] = '\0';
+	return (i);
 }
+
+/*int	main(void)
+{
+	char			str[] = "Ojete calores son amores";
+	char			dest[50];
+	unsigned int	size;
+	size_t			i;
+
+	size = 13;
+	//i = strlcpy(dest, str, size);
+	i = ft_strlcpy(dest, str, size);
+	printf("srlcpy i = %lu\n", i);
+	printf("srlcpy dest = %s\n", dest);
+	return (0);
+}*/

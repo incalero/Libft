@@ -3,54 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/30 10:28:11 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/30 10:52:59 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/18 17:37:04 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/04/25 18:50:49 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+/*#include <stdio.h>*/
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*ss1;
-	const unsigned char	*ss2;
-	size_t				i;
+	unsigned char	*s1b;
+	unsigned char	*s2b;
+	size_t			i;
 
+	s1b = (unsigned char *) s1;
+	s2b = (unsigned char *) s2;
 	i = 0;
-	ss1 = (const unsigned char *)s1;
-	ss2 = (const unsigned char *)s2;
 	while (i < n)
 	{
-		if (ss1[i] != ss2[i])
-			return (ss1[i] - ss2[i]);
+		if (s1b[i] != s2b[i])
+			return (s1b[i] - s2b[i]);
 		i++;
 	}
 	return (0);
 }
 
-/*int main(void)
+/*int	main(void)
 {
-    size_t x = 3;
-    size_t y = 9;
-    
-    const void *s1 = "hola mundo";
-    const void *s2 = "hola ztuendo";
+	const char	s1[] = "abcdef";
+	const char	s2[] = "abc\375xx";
+	size_t		n;
 
-    const void *s3 = "hola mundo";
-    const void *s4 = "hola ";
-    
-    printf("el resultado de la funcion replica es %d\n" , ft_memcmp(s1, s2, x));
-    printf("el resultado de la funcion original es %d\n" , memcmp(s1, s2, x));
-    
-    printf("el resultado de la funcion replica es %d\n" , ft_memcmp(s1, s2, y));
-    printf("el resultado de la funcion original es %d\n" , memcmp(s1, s2, y));
-
-    printf("el resultado de la funcion replica es %d\n" , ft_memcmp(s3, s4, x));
-    printf("el resultado de la funcion original es %d\n" , memcmp(s3, s4, x));
-    
-    printf("el resultado de la funcion replica es %d\n" , ft_memcmp(s3, s4, y));
-    printf("el resultado de la funcion original es %d\n" , memcmp(s3, s4, y));
-
+	n = 7;
+	printf ("Funcion original: %i\n", memcmp(s1, s2, n));
+	printf ("Funcion propio:   %i\n", ft_memcmp(s1, s2, n));
+	return (0);
 }*/

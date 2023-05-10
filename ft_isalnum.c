@@ -3,27 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 08:15:25 by incalero          #+#    #+#             */
-/*   Updated: 2023/04/25 08:15:25 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/13 10:09:36 by manue             #+#    #+#             */
+/*   Updated: 2023/04/21 13:47:08 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/*#include <ctype.h>
+#include <stdio.h>*/
 
 int	ft_isalnum(int c)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57))
-		return (c);
+	if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') \
+	|| (c >= 'A' && c <= 'Z'))
+		return (1);
 	return (0);
 }
 
-/* int main(void)
+/*int	main(void)
 {
-    char    x;
+	int	c;
 
-    x = ';';
-    printf("%d\n", ft_isalnum(x));
-    printf("%d\n", isalnum(x));
+	c = '4';
+	printf("Funcion original: %i\n", isalnum(c));
+	printf("Funcion propia:   %i\n", ft_isalnum(c));
+	return (0);
 }*/

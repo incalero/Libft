@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jgoikoet <jgoikoet@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 11:21:00 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/02 11:17:21 by incalero         ###   ########.fr       */
+/*   Created: 2023/04/18 17:41:23 by jgoikoet          #+#    #+#             */
+/*   Updated: 2023/04/21 14:23:45 by jgoikoet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include <ctype.h>
 
 int	ft_tolower(int c)
 {
@@ -23,9 +23,8 @@ int	ft_tolower(int c)
 {
 	int		c;
 
-	c = 'J';
-	printf("el caracter que cambiamos es: %c\n", c);
+	c = 'W';
 	printf("Funcion original:     %c\n", tolower(c));
-	printf("Funcion creada: %c\n", ft_tolower(c));
+	printf("Funcion propio vasco: %c\n", ft_tolower(c));
 	return (0);
 }*/
