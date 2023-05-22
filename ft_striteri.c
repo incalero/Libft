@@ -1,39 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 14:45:42 by incalero          #+#    #+#             */
+/*   Updated: 2023/05/22 14:45:42 by incalero         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlen(const	char *str)
+char	*ft_striteri(char *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	unsigned int	i;
 
+	if (!s && !f)
+		return (NULL);
 	i = 0;
-	while (str[i])
+	while (s[i])
+	{
+		s[i] = f(i, s[i]);
 		i++;
-	return (i);
+	}
+	s[i] = '\0';
+	return (s);
 }
 
-char convertToUppercase(unsigned int index, char c) 
+/*char convertToUppercase(unsigned int index, char c)
 {
-    if (c >= 'a' && c <= 'z') 
-        return c - 32;  // Convertir carácter a mayúscula
-    else 
-        return c;  // Mantener carácter sin cambios
-}
-
-char    *ft_striteri(char *s, char (*f)(unsigned int, char))
-{
-    unsigned int     i;
-
-    if (!s)
-        return (0);
-	if (!s)
-		return (0);
-    i = 0;
-    while (s[i])
-    {
-        s[i] = f(i, s[i]);
-        i++;
-    }
-    s[i] = 0;
-    return (s);
+	if (c >= 'a' && c <= 'z') 
+		return c - 32;  // Convertir carácter a mayúscula
+	else 
+		return (c);  // Mantener carácter sin cambios
 }
 
 int main(void)
@@ -44,4 +44,4 @@ int main(void)
     c = ft_striteri(s, convertToUppercase);
     printf ("el resultado de aplicar la funcion es: %s\n", c);
     return (0);
-}
+}*/

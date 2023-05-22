@@ -1,52 +1,91 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 08:15:03 by incalero          #+#    #+#             */
+/*   Updated: 2023/05/22 08:15:03 by incalero         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int  ft_countdigit (int c)
+static char	*ft_strcpy(char *dest, char *src)
 {
-    int  temp;
-    int  numDigits;
+	int	i;
 
-    numDigits = 1;
-    temp = c;
-    if (temp < 0)
-        {
-            numDigits++;
-            temp = -temp;
-        }
-    while (temp /= 10)
-        numDigits++;
-    return (numDigits);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 
-char    *ft_itoa(int n)
+static	int	ft_countdigit(int c)
 {
-    int         len;
-    const char  *s;
-    char        *res;
+	int	temp;
+	int	numdigits;
 
-    s = "0123456789";
-    len = ft_countdigit (n);
-    res = (char *)malloc((len + 1) * sizeof(char));  // Asignar memoria para res
-    if (!res)  // Verificar si la asignación de memoria fue exitosa
-        return NULL;
-    if (n == 0)
-        res[0] = '0';
-    if (n < 0)
-        n = -n;
-        res[0] = '-';
-    while (n)
-    {
-        res[--len] = s[n % 10];
-        n /= 10;
-    }
-    return (res);
+	numdigits = 0;
+	temp = c;
+	if (temp < 0)
+		temp = -temp;
+	while (temp != 0)
+	{
+		temp /= 10;
+		numdigits++;
+	}
+	return (numdigits);
 }
 
-int main(void)
+char	*ft_itoa(int n)
 {
-    int c;
+	int			len;
+	char		*res;
 
-    c = 21474834;
-    printf ("el numero de digitos es %d\n", ft_countdigit(c));
-    printf ("el string resultante de itoa es : %s", ft_itoa(c));
-    return (0);
+	len = ft_countdigit (n);
+	if (n <= 0)
+		len++;
+	res = (char *)malloc((len + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	if (n == 0)
+		res[0] = '0';
+	else if (n < 0)
+	{
+		if (n == -2147483648)
+			return (ft_strcpy(res, "-2147483648"));
+		res[0] = '-';
+		n = -n;
+	}
+	res[len] = '\0';
+	while (n > 0)
+	{
+		res[--len] = (n % 10) + 48;
+		n /= 10;
+	}
+	return (res);
 }
+
+/*int	main(void)
+{
+	int	c;
+	int	d;
+	int	z;
+
+	c = -2147483648;
+	d = -10;
+	z = 0;
+	printf ("el numero de digitos es %d\n", ft_countdigit(c));
+	printf ("el numero de digitos es %d\n", ft_countdigit(d));
+	printf ("el numero de digitos es %d\n", ft_countdigit(z));
+	printf ("el string resultante de itoa es : %s\n\n", ft_itoa(c));
+	printf ("el string resultante de itoa es : %s\n\n", ft_itoa(d));
+	printf ("el string resultante de itoa es : %s\n\n", ft_itoa(z));
+	return (0);
+}*/

@@ -1,36 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 16:06:07 by incalero          #+#    #+#             */
+/*   Updated: 2023/05/22 16:06:07 by incalero         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlen(const	char *str)
+static int	ft_check_ini(char const *s1, char const *set)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-
-	i = 0;
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	while (src[i] != '\0' && i < dstsize - 1)
-	{
-	dst [i] = src [i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
-}
-
- 
-static int	ft_findi(char const *s1, char const *set)
-{
-
-    int	i;
+	int	i;
 	int	j;
 	int	ok;
 
@@ -38,9 +22,9 @@ static int	ft_findi(char const *s1, char const *set)
 	ok = 1;
 	while (s1[i] != '\0' && ok == 1)
 	{
-		ok = 0;
 		j = 0;
-		while ( set[j] != '\0')
+		ok = 0;
+		while (set[j] != '\0')
 		{
 			if (set[j++] == s1[i])
 				ok = 1;
@@ -50,67 +34,56 @@ static int	ft_findi(char const *s1, char const *set)
 	return (i - 1);
 }
 
-static int	ft_finde(char const *s1, char const *set)
+static int	ft_check_fin(char const *s1, char const *set)
 {
 	int	i;
 	int	j;
 	int	ok;
 
-	i = strlen(s1) - 1;
+	i = 0;
 	ok = 1;
-	while (s1[i] != '\0' && ok == 1)
+	while (s1[i] != '\0')
+		i++;
+	i--;
+	while (i >= 0 && ok == 1)
 	{
 		j = 0;
 		ok = 0;
-		while ( set[j] != '\0')
+		while (set[j] != '\0')
 		{
 			if (set[j++] == s1[i])
 				ok = 1;
 		}
 		i--;
 	}
-	return (i + 2);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char		*result;
-    	
-	if (!s)
-		return (0);
-	if (start >= ft_strlen(s))
-	{
-		result = malloc(sizeof(char) * 1);
-		if (!result)
-			return (NULL);
-		result[0] = '\0';
-		return (result);
-	}
-	if (len > (ft_strlen(s) - start))
-		len = ft_strlen(s) - start;
-	result = malloc(sizeof(char) * (len +1));
-	if (!result)
-		return (NULL);
-	ft_strlcpy(result, s + start, len +1);
-	return (result);
+	return (i + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned int	start;
-	size_t 			len;
+	char	*res;
+	int		i;
+	int		i2;
+	int		j;
 
-	start = ft_findi(s1, set);
-	len = ft_finde(s1, set) - ft_findi(s1, set); 
-	if (!s1 || !set)
-		return (0);
-	return (ft_substr(s1, start, len));
+	i2 = 0;
+	j = ft_check_fin(s1, set);
+	i = ft_check_ini(s1, set);
+	if (j - i < 0 || *s1 == '\0')
+		return (ft_strdup(""));
+	res = (char *) malloc (sizeof(char) * (j - i) + 2);
+	if (res == NULL)
+		return (NULL);
+	while (i <= j)
+		res[i2++] = s1[i++];
+	res[i2] = '\0';
+	return (res);
 }
 
 /*int	main(void)
 {
-	const char	s1[] = "abac dcazbc";
-	const char	set[] = "acb";
+	const char	s1[] = "            ";
+	const char	set[] = "  ";
 	const char	s2[] = "12122212A a34412412221";
 	const char	set2[] = "12";
 	unsigned int	x = ft_findi(s1, set);
@@ -134,3 +107,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	printf (" el string resultante es :%s\n\n\n", ft_substr(s2, z, k));
 	printf ("el string resultante de strtrim es :%s\n\n\n", ft_strtrim(s2, set2));
 }*/
+
