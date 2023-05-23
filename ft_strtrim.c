@@ -91,8 +91,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	z = ft_findi(s2, set2);
 	size_t	k = ft_finde(s2, set2) - ft_findi(s2, set2);
 
-	printf (" el strlen 1 resultante es :%ld\n %ld\n", strlen(s1), strlen(set));
-	printf (" el strlen 1 resultante es :%ld\n %ld\n\n\n", strlen(s2), strlen(set2));
+	printf (" el strlen 1 resultante es :%ld\n %ld\n", 
+	strlen(s1), strlen(set));
+	printf (" el strlen 1 resultante es :%ld\n %ld\n\n\n", 
+	strlen(s2), strlen(set2));
 
 
 	printf ("el resultado 1 de findi es:%d\n", ft_findi(s1, set));
@@ -107,4 +109,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	printf (" el string resultante es :%s\n\n\n", ft_substr(s2, z, k));
 	printf ("el string resultante de strtrim es :%s\n\n\n", ft_strtrim(s2, set2));
 }*/
-

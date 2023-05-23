@@ -1,23 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 10:28:11 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/23 10:13:13 by incalero         ###   ########.fr       */
+/*   Created: 2023/05/23 12:47:50 by incalero          #+#    #+#             */
+/*   Updated: 2023/05/23 13:41:44 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const	char *str)
+/*void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	long int	x;
+	int			i;
+	char		*s;
 
+	x = n;
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	s = ft_itoa(x);
+	while (s[i] != '\0')
+		write (fd, &s[i++], 1);
+	free(s);
+}*/
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long int	x;
+
+	x = n;
+	if (x < 0)
+	{
+		ft_putchar_fd('-', fd);
+		x = -x;
+	}
+	if (x >= 10)
+	{
+		ft_putnbr_fd(x / 10, fd);
+		ft_putnbr_fd(x % 10, fd);
+	}
+	else
+		ft_putchar_fd(x + '0', fd);
 }

@@ -12,20 +12,16 @@
 
 #include "libft.h"
 
-char	*ft_striteri(char *s, char (*f)(unsigned int, char))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
-	if (!s && !f)
-		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		s[i] = f(i, s[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	s[i] = '\0';
-	return (s);
 }
 
 /*char convertToUppercase(unsigned int index, char c)
