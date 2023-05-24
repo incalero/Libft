@@ -6,7 +6,7 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 08:49:55 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/23 08:49:55 by incalero         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:51:21 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,8 @@ char	**ft_split(char const *s, char c)
 	int		inicio;
 	char	**s2;
 
-	if (!s)
-		return (NULL);
 	s2 = (char **) malloc (sizeof(char *) * ((ft_findc(s, c)) + 1));
-	if (s2 == NULL)
+	if (!s || s2 == NULL)
 		return (NULL);
 	i = -1;
 	j = 0;
@@ -76,7 +74,7 @@ char	**ft_split(char const *s, char c)
 		else if ((s[i] == c || i == ft_strlenint(s)) && inicio >= 0)
 		{
 			s2[j++] = ft_substr(s, inicio, i - inicio);
-			if (!s2)
+			if (s2[j - 1] == NULL)
 				return (ft_del(s2, j));
 			inicio = -1;
 		}
