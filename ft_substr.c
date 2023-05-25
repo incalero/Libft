@@ -6,7 +6,7 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:01:38 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/23 10:20:09 by incalero         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:21:24 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*result;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	if (start >= ft_strlen(s))
 	{
 		result = malloc(sizeof(char) * 1);
