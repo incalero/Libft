@@ -6,7 +6,7 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 08:15:32 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/03 11:36:47 by incalero         ###   ########.fr       */
+/*   Updated: 2023/05/25 09:03:41 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 
 int	ft_isalpha(int c)
 {
-	if ((c < 'A') || (c > 'Z' && c < 'a') || (c > 'z'))
-		return (0);
-	return (1);
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
 }
-
-/* int main(void)
+/*int main(void)
 {
 	char c = 'a';
-	printf ("%s", "el resultado de la solucion es:");
-	printf ("%d", ft_isalpha(c));
-	printf ("%s", "el resultado de la solucion 2 es:");
-	printf ("%d", isalpha(c));
+	printf ("el resultado de la solucion es: %d\n" , ft_isalpha(c));
+	printf ("el resultado de la solucion es: %d\n" , isalpha(c));
+	
 }*/

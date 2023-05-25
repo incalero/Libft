@@ -6,7 +6,7 @@
 /*   By: incalero <incalero@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 09:38:08 by incalero          #+#    #+#             */
-/*   Updated: 2023/05/03 11:36:38 by incalero         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:46:18 by incalero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	i;
+	int		i;
 	size_t	j;
 	size_t	dest_length;
 	size_t	src_length;

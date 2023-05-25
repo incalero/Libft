@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	while (c >= 256)
+	while (c >= 256) 
 		c = c - 256;
 	while (s[i] != '\0')
 		i++;
